@@ -1,4 +1,4 @@
-# OTA Profile Aggregator — Developer Guide
+# OTA Profile Aggregator - Developer Guide
 
 A two-path pipeline for extracting structured hotel profiles from Online Travel Agencies (OTAs). Both paths share the same clients, parsers, HTTP layer, and JSONL output format.
 
@@ -17,7 +17,7 @@ A two-path pipeline for extracting structured hotel profiles from Online Travel 
 9. [Output Format](#output-format)
 10. [Debugging](#debugging)
 11. [Notes](#notes)
-12. [Appendix — Full Flow for One Property](#appendix--full-flow-for-one-property)
+12. [Appendix - Full Flow for One Property](#appendix--full-flow-for-one-property)
 
 ---
 
@@ -63,7 +63,7 @@ The pipeline has two entrypoints that converge on the same client-parser-executo
                     sub_profiles/<ota>.jsonl
 ```
 
-**Key invariant:** the individual path and the wildcard path produce *identical* JSONL rows for the same property. Only one field differs — `_source` — which records which entrypoint wrote the row.
+**Key invariant:** the individual path and the wildcard path produce *identical* JSONL rows for the same property. Only one field differs - `_source` - which records which entrypoint wrote the row.
 
 ---
 
@@ -218,22 +218,22 @@ failing items with instructions on how to fix each one.
 
 Each check prints one of:
 
-- `[OK  ]` — item present or resolved.
-- `[MISS]` — item missing; instructions follow.
+- `[OK  ]` - item present or resolved.
+- `[MISS]` - item missing; instructions follow.
 
 Sections are grouped and always print in the same order:
 
 ```
-Virtual environment       — is a venv active?
-Python version            — is python 3.10+?
-Dependencies              — are requirements.txt packages installed?
-Directory structure       — do all required dirs exist?
-Source files              — is every imported module on disk?
-Captured curl sessions    — do the five .curl files parse?
-configs/config.py         — is the config module present?
-Module imports            — do all plugins import without error?
-Plugin registry           — are all five OTAs registered?
-Summary                   — one line per section, [OK] or [FAIL]
+Virtual environment       - is a venv active?
+Python version            - is python 3.10+?
+Dependencies              - are requirements.txt packages installed?
+Directory structure       - do all required dirs exist?
+Source files              - is every imported module on disk?
+Captured curl sessions    - do the five .curl files parse?
+configs/config.py         - is the config module present?
+Module imports            - do all plugins import without error?
+Plugin registry           - are all five OTAs registered?
+Summary                   - one line per section, [OK] or [FAIL]
 ```
 
 ### What `plumbing.sh` handles automatically
@@ -272,7 +272,7 @@ For a new contributor, the full sequence is:
 git clone <repo-url>
 cd <repo>
 
-# 2. Pre-flight — creates venv, installs deps, reports what's missing
+# 2. Pre-flight - creates venv, installs deps, reports what's missing
 ./plumbing.sh
 
 # 3. Capture the curl sessions the pre-flight flagged as [MISS].
@@ -299,14 +299,14 @@ python3 google_profile_scraper.py
 
 ### Re-running pre-flight
 
-Safe to run anytime. It is idempotent — running it on a ready environment
+Safe to run anytime. It is idempotent - running it on a ready environment
 takes ~2 seconds and changes nothing. Run it:
 
 - After `git pull` to confirm dependencies still resolve.
 - After editing `requirements.txt`.
 - When a session file goes stale (the pipeline writes a
   `<ota>.session_expired` flag; the pre-flight will show the file still
-  parses, but the pipeline itself will fail — see
+  parses, but the pipeline itself will fail - see
   [Session rotation](#session-rotation)).
 - Before opening a bug report, so you can attach the pre-flight output.
 
@@ -329,7 +329,7 @@ the active interpreter. Useful for:
 ```
 
 The exit code is `0` when the environment is complete, `1` when
-something is missing — usable as a gate before the actual test suite.
+something is missing - usable as a gate before the actual test suite.
 
 
 ### Cleaning up
@@ -355,29 +355,29 @@ To reset the working directory without deleting source:
 
 A few common situations and their fixes:
 
-**`[FAIL] venv` — no active virtualenv**
+**`[FAIL] venv` - no active virtualenv**
 
 ```bash
 source venv/bin/activate
 ./plumbing.sh
 ```
 
-**`[FAIL] deps` — a package is missing or fails to install**
+**`[FAIL] deps` - a package is missing or fails to install**
 
 ```bash
 ./plumbing.sh --fresh    # rebuild venv, reinstall everything
 ```
 
-**`[FAIL] curl` — a session file is missing or unreadable**
+**`[FAIL] curl` - a session file is missing or unreadable**
 
 Recapture from a browser. See [Capturing a session](#capturing-a-session).
 
-**`[FAIL] imports` — a module raises on import**
+**`[FAIL] imports` - a module raises on import**
 
 Read the traceback printed by the pre-flight. Usually a missing entry in
 `requirements.txt` or a typo in a new file.
 
-**`[FAIL] registry` — an OTA isn't registered**
+**`[FAIL] registry` - an OTA isn't registered**
 
 Check `profile_plugins/manager.py`'s `_build_registry()`. If a
 `try/except ImportError` block is failing silently, import the offending
@@ -387,7 +387,7 @@ client directly to see the real error:
 python3 -c "from profile_plugins.shared_client.<ota>_client import <Ota>Client"
 ```
 
-**`[FAIL] config` — `configs/config.py` missing**
+**`[FAIL] config` - `configs/config.py` missing**
 
 Copy from a teammate, or reconstruct from `configs/config.example.py` if
 your repo provides one. Never commit secrets.
@@ -509,7 +509,7 @@ from profile_plugins.manager import (
 )
 ```
 
-The registry is built lazily and cached. Every `try/except ImportError` block means a missing client/parser module degrades gracefully — the OTA simply isn't registered, and the wildcard path logs `no plugin for <name>` and skips it.
+The registry is built lazily and cached. Every `try/except ImportError` block means a missing client/parser module degrades gracefully - the OTA simply isn't registered, and the wildcard path logs `no plugin for <name>` and skips it.
 
 **Both entrypoints use `resolve_registry_entry`.** This means Google can emit any of `"Expedia.nl"`, `"Expedia.com"`, `"expedia"`, or `"expedia.dk"` and all four resolve to the same client+parser. Adding an OTA to the registry makes it resolvable everywhere with zero further changes.
 
@@ -517,9 +517,9 @@ The registry is built lazily and cached. Every `try/except ImportError` block me
 
 ## Adding a New OTA
 
-Say you want to add Tripadvisor. You touch exactly four places — nothing in `individual/` needs to change.
+Say you want to add Tripadvisor. You touch exactly four places - nothing in `individual/` needs to change.
 
-### Step 1 — Create the client
+### Step 1 - Create the client
 
 `profile_plugins/shared_client/tripadvisor_client.py`:
 
@@ -559,7 +559,7 @@ class TripadvisorClient(BaseOtaClient):
         return raw_deeplink.strip()
 ```
 
-### Step 2 — Create the parser
+### Step 2 - Create the parser
 
 `profile_plugins/plugin_parsers/tripadvisor_parser.py`:
 
@@ -593,7 +593,7 @@ class TripadvisorParser(BaseOtaParser):
         }
 ```
 
-### Step 3 — Register it
+### Step 3 - Register it
 
 `profile_plugins/manager.py`, inside `_build_registry()`:
 
@@ -613,7 +613,7 @@ class TripadvisorParser(BaseOtaParser):
         logger.debug("Tripadvisor plugin not installed")
 ```
 
-### Step 4 — Capture a curl session
+### Step 4 - Capture a curl session
 
 See [Session Management](#session-management-curl-files) below. Save it to `curl_sessions/tripadvisor_com.curl`.
 
@@ -678,7 +678,7 @@ and one ERROR line is logged. That's your signal to recapture the curl file. The
 
 ### Rotation policy
 
-Manual rotation is the recommended approach. Automating it means keeping a headless browser logged in, storing credentials, bypassing 2FA, and — for Booking and Expedia — explicitly violating their Terms of Service. In practice a captured session is valid for hours to days. The 3-strike flag tells you exactly when to act.
+Manual rotation is the recommended approach. Automating it means keeping a headless browser logged in, storing credentials, bypassing 2FA, and - for Booking and Expedia - explicitly violating their Terms of Service. In practice a captured session is valid for hours to days. The 3-strike flag tells you exactly when to act.
 
 When the flag appears:
 
@@ -703,8 +703,8 @@ A response is retried if:
 
 The retry delay is chosen in this order:
 
-1. **`Retry-After` header** — if the server sent one, honor it exactly.
-2. **Default 1.5 s** — if there's no header, use the fixed default.
+1. **`Retry-After` header** - if the server sent one, honor it exactly.
+2. **Default 1.5 s** - if there's no header, use the fixed default.
 
 See [Notes → Backoff strategy](#backoff-strategy) for the recommended upgrade to exponential-with-jitter if you start seeing sustained 429s.
 
@@ -754,12 +754,12 @@ Each parser declares its own fields with a `<ota>_` prefix. Examples:
 
 ### Appending semantics
 
-The JSONL files are append-only. Running the same URL twice produces two rows. Deduplication is the consumer's responsibility — join on `(source_url, _source)` or on the OTA-specific `*_property_id`.
+The JSONL files are append-only. Running the same URL twice produces two rows. Deduplication is the consumer's responsibility - join on `(source_url, _source)` or on the OTA-specific `*_property_id`.
 
 ### Downstream notes
 
 - Fields prefixed with `_` are metadata, not property data.
-- Nulls are explicit — a field with no extracted value is present as `null`, not omitted. This makes schema validation easier.
+- Nulls are explicit - a field with no extracted value is present as `null`, not omitted. This makes schema validation easier.
 - All strings pass through `clean_text()` (`utils/string_utils.py`), which strips HTML entities, bidi control characters, and collapses whitespace.
 
 ---
@@ -877,7 +877,7 @@ Operational notes, gotchas, and follow-ups that don't fit neatly into the sectio
 _DEBUG_DUMP_FOLLOWUP = True
 ```
 
-While enabled, every Expedia property overwrites `/tmp/expedia_followup.html`. That's fine during development — it's the fastest way to inspect the current page shape — but it's noise in production:
+While enabled, every Expedia property overwrites `/tmp/expedia_followup.html`. That's fine during development - it's the fastest way to inspect the current page shape - but it's noise in production:
 
 - It slows down each Expedia parse by ~50–100 ms (writing 1.5–2.2 MB to disk).
 - It leaves a stale file on disk between runs that can mislead debugging.
@@ -900,7 +900,7 @@ Then `EXPEDIA_DUMP_HTML=1 python3 ...` for a one-off debug run.
 
 ### Booking.com session drift
 
-A freshly-rotated `booking_com.curl` is valid for **hours to days**, not minutes. Booking's session cookies (`bkng`, `_ga_*`, `AWSALB*`) expire on a rolling window that's typically measured in hours of *activity* rather than wall-clock time — so a session that's used every few minutes outlasts one that sits idle for a day.
+A freshly-rotated `booking_com.curl` is valid for **hours to days**, not minutes. Booking's session cookies (`bkng`, `_ga_*`, `AWSALB*`) expire on a rolling window that's typically measured in hours of *activity* rather than wall-clock time - so a session that's used every few minutes outlasts one that sits idle for a day.
 
 You'll know the session has gone stale when the `.session_expired` flag file appears:
 
@@ -908,7 +908,7 @@ You'll know the session has gone stale when the `.session_expired` flag file app
 sub_profiles/booking_com.session_expired
 ```
 
-That file is written by `SessionExpiryTracker` after **3 consecutive session-expiry events** from the same client instance. It means Booking has been answering with the small 202 shell repeatedly — a fresh curl is required. The flag is cleared automatically the first time a fetch succeeds after rotation.
+That file is written by `SessionExpiryTracker` after **3 consecutive session-expiry events** from the same client instance. It means Booking has been answering with the small 202 shell repeatedly - a fresh curl is required. The flag is cleared automatically the first time a fetch succeeds after rotation.
 
 **When the flag appears:**
 
@@ -917,23 +917,23 @@ That file is written by `SessionExpiryTracker` after **3 consecutive session-exp
 3. Copy the document request as cURL (DevTools → Network → right-click → Copy as cURL).
 4. Overwrite `profile_plugins/curl_sessions/booking_com.curl`.
 5. Delete the flag file: `rm sub_profiles/booking_com.session_expired`.
-6. Next run: `booking_com: loaded curl session — N headers, M cookies` and normal fetches resume.
+6. Next run: `booking_com: loaded curl session - N headers, M cookies` and normal fetches resume.
 
-Same pattern applies to any OTA — the flag filename is always `<output_name>.session_expired`.
+Same pattern applies to any OTA - the flag filename is always `<output_name>.session_expired`.
 
 ### Backoff strategy
 
 The current retry logic uses a **fixed 1.5 s delay** between attempts, honoring `Retry-After` when the server sends it. That's adequate for isolated 429s and 202 warm-up hops. It is **not** adequate when you're being rate-limited hard, which happens on Expedia when you run many properties back-to-back.
 
-Here's the professional approach, in three layers. Adopt them in order — the earlier layers are cheaper.
+Here's the professional approach, in three layers. Adopt them in order - the earlier layers are cheaper.
 
-#### Layer 1 — Always honor `Retry-After`
+#### Layer 1 - Always honor `Retry-After`
 
 Already implemented in `utils/http_utils.py::retry_after_seconds`. When Booking, Expedia, or Agoda returns a 429 or 503, they usually include a `Retry-After: <seconds>` header. Our retry delay reads it. Never override it with a fixed guess.
 
 If you see a 429 without a `Retry-After`, that's the signal to move to Layer 2.
 
-#### Layer 2 — Exponential backoff with jitter
+#### Layer 2 - Exponential backoff with jitter
 
 Replace the fixed delay with `min(cap, base * 2^attempt) ± jitter`:
 
@@ -965,7 +965,7 @@ sleep_before_retry(delay)
 
 **Why cap at 60 s?** Beyond a minute, you're better off giving up and letting the caller decide (retry the property later, or accept the miss). A hung retry loop is worse than a failed fetch.
 
-#### Layer 3 — Inter-property pacing
+#### Layer 3 - Inter-property pacing
 
 The manager processes properties sequentially. Between properties, insert a small pause so a 30-property run doesn't hammer any single OTA:
 
@@ -975,7 +975,7 @@ import time
 time.sleep(1.5)
 ```
 
-`1.5 s × 30 properties = 45 s` of added wall-clock time. That's the cheapest insurance against burst limits — far cheaper than 5-minute hard pauses. Tune it:
+`1.5 s × 30 properties = 45 s` of added wall-clock time. That's the cheapest insurance against burst limits - far cheaper than 5-minute hard pauses. Tune it:
 
 | OTA behaviour | Recommended inter-property sleep |
 |---|---|
@@ -1001,7 +1001,7 @@ time.sleep(1.5)
 
 #### When to reconsider the session
 
-If you see the same 429 across multiple runs separated by hours, and `Retry-After` isn't being sent, the session itself may be flagged. That's a different problem — recapture the curl file, and see [Booking.com session drift](#bookingcom-session-drift) above.
+If you see the same 429 across multiple runs separated by hours, and `Retry-After` isn't being sent, the session itself may be flagged. That's a different problem - recapture the curl file, and see [Booking.com session drift](#bookingcom-session-drift) above.
 
 ### Verifying that the resolver picked up a name change
 
@@ -1012,7 +1012,7 @@ python3 google_profile_scraper.py 2>&1 | tee /tmp/run.log
 grep "no plugin for" /tmp/run.log
 ```
 
-The manager now logs `no plugin for 'X' (have: Agoda, Booking.com, Expedia.com, Trip.com)` at INFO level, so you don't need to enable DEBUG to find it. If a new name appears, add it to the entry's `aliases` tuple in `_build_registry()` — no other change required.
+The manager now logs `no plugin for 'X' (have: Agoda, Booking.com, Expedia.com, Trip.com)` at INFO level, so you don't need to enable DEBUG to find it. If a new name appears, add it to the entry's `aliases` tuple in `_build_registry()` - no other change required.
 
 ### Cleaning up scratch artifacts
 
@@ -1033,7 +1033,7 @@ Nothing here is required for production, but keeping `/tmp` clean makes it easie
 
 ---
 
-## Appendix — Full Flow for One Property
+## Appendix - Full Flow for One Property
 
 ### Wildcard path
 
@@ -1094,7 +1094,7 @@ emits a URL shape that renders a reduced page:
   reads the canonical URL from the shell response and refetches the
   `/Hotel_Review-...` form, which ships the full SSR payload.
 
-If a future OTA shows the same symptom — Google's deeplink works but
-returns a stripped page — the fix lives in `normalize_url` (single
+If a future OTA shows the same symptom - Google's deeplink works but
+returns a stripped page - the fix lives in `normalize_url` (single
 fetch) or a `fetch()` override (two-fetch). Both patterns are
 established; copy whichever fits.

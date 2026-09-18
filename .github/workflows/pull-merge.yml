@@ -1,0 +1,25 @@
+name: Auto Merge to main
+
+on:
+  push:
+    branches:
+      - ray__staging
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create Merge Request and Merge
+        env:
+          GITHUB_TOKEN: ${{ secrets.AUTO_MERGE_TOKEN }}
+        run: |
+          # Use GitHub CLI (installed by default on runners) for extreme security and reliable payloads
+          PR_URL=$(gh pr create --title "Automated MR from ray__staging to main" --body "Automatic Claude Merge Sync" --head "ray__staging" --base "main")
+          if [ -z "$PR_URL" ]; then
+            echo "Failed to create Pull Request"
+            exit 1
+          fi
+          gh pr merge "$PR_URL" --merge --delete-branch

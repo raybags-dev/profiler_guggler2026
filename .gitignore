@@ -1,0 +1,74 @@
+
+# ---------------------------------------------------------------------
+# Captured browser sessions (cookies, WAF tokens — never commit)
+# Data dumps and scratch files (inputs/outputs, not source)
+# Editor / OS
+# Environment / secrets
+# Logs
+# Python
+# Runtime output (created by the pipeline on every run)
+# Scratch / temporary
+*.egg
+*.egg-info/
+*.html.dump
+*.iml
+*.jsonl
+*.key
+*.log
+*.pem
+*.py[cod]
+*.pyd
+*.pyo
+*.session_expired
+*.so
+*.swo
+*.swp
+*.whl
+*~
+.DS_Store
+.coverage
+.coverage.*
+.docker/
+.eggs/
+.env
+.env.*
+.env.development
+.env.local
+.env.production
+.hypothesis/
+.idea/
+.mypy_cache/
+.nox/
+.pyre/
+.pytest_cache/
+.python-version
+.pytype/
+.ruff_cache/
+.tox/
+.venv/
+.vscode/
+/tmp_*/
+ENV/
+EOF.env.local
+Thumbs.db
+__pycache__/
+_cURL.txt
+build/
+cat > .gitignore <<'EOF'
+dist/
+docker-compose.override.yml
+env/
+google_profile_analytics.txt
+htmlcov/
+json_data/
+logs/
+node_modules/
+npm-debug.log*
+profile_plugins/curl_sessions/*.curl
+row_google_page.txt
+scratch/
+secrets/
+sub_profiles/
+tmp/
+venv/
+yarn.lock

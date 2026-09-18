@@ -1,0 +1,45 @@
+name: docker-image-build-pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME_PERSONAL }}
+          password: ${{ secrets.DOCKERHUB_TOKEN_PERSONAL }}
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Debug node_modules
+        run: ls -la node_modules | grep dotenv || echo "dotenv NOT FOUND"
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: true
+          tags: |
+            playground:latest
+            playground:v${{ secrets.VERSION }}
+          cache-from: type=registry,ref=playground:buildcache
+          cache-to: type=registry,ref=playground:buildcache,mode=max
+
+      - name: Cleanup
+        run: docker image prune -af --filter "until=24h"

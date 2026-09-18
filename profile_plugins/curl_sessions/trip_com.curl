@@ -1,0 +1,16 @@
+curl --url 'https://nl.trip.com/hotels/detail/?cityEnName=Amsterdam&cityId=176&hotelId=2803915' \
+  -H 'accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7' \
+  -H 'accept-language: en-US,en;q=0.9' \
+  -H 'cache-control: no-cache' \
+  -b 'GUID=09034058418840481938; GUID.sig=K3-zEdPHHESewpHvKkzRV84JYZCgqREtqOHnL9-RiFw; UBT_VID=1781352534266.f55fz8QmGqiL; cookiePricesDisplayed=EUR; _abtest_userid=1f869a59-6d16-4581-aff2-529778724229; _RGUID=6d72b038-64e5-4df7-915a-6980db717fd4; ibu_online_home_language_match=%7B%22isFromTWNotZh%22%3Afalse%2C%22isFromIPRedirect%22%3Afalse%2C%22isFromLastVisited%22%3Afalse%2C%22isRedirect%22%3Afalse%2C%22isShowSuggestion%22%3Afalse%2C%22lastVisited%22%3A%22https%3A%2F%2Fnl.trip.com%22%2C%22region%22%3A%22%22%7D; ibu_enable_functional=0; ibu_enable_analytical=0; ibu_enable_marketing=0; ibu_enable_nonessential=0; ubtc_trip_enable_nonessential=0; nfes_isSupportWebP=1; ibu_online_jump_site_result={"isShowSuggestion":false,"isRedirect":false}; _twpid=tw.1784535281227.764958369611562216; _fbp=fb.1.1784535282025.513578367120078040; _fwb=102wbBodVDzIEYNdBuQx4v8.1784535294757; ibu_online_permission_cls_ct=3; ibu_online_permission_cls_gap=1785519895249; ibu_country=NL; ibu_cookie_strict=1; GUID=09034058418840481938; ibu_hotel_search_crn_guest=%7B%22adult%22%3A2%2C%22children%22%3A0%2C%22ages%22%3A%22%22%2C%22crn%22%3A1%7D; oldCurrency=EUR; IBU_showtotalamt=2; IBU_TRANCE_LOG_P=87631338827; ibu_hotel_search_target=%7B%22countryId%22%3A43%2C%22provinceId%22%3A10067%2C%22searchWord%22%3A%22%22%2C%22cityId%22%3A176%2C%22searchType%22%3A%22%22%2C%22searchValue%22%3A%22%22%2C%22cityName%22%3A%22Amsterdam%22%7D; w_lid=016a2d486a205ca6f3eb; Shopping=AllianceID%3D15214%26SID%3D1349498%26OUID%3Dctag.hash.fas7SsHB8Mr4; _resDomain=https%3A%2F%2Fak-s-cw.tripcdn.com; ibu_hotel_search_date=%7B%22checkIn%22%3A%222026-11-15%22%2C%22checkOut%22%3A%222026-11-16%22%2C%22isChoseFlexible%22%3Afalse%2C%22flexibleDate%22%3A%7B%22selectNight%22%3A0%7D%2C%22dayFlexibility%22%3A0%7D; x-ctx-user-recognize=IS_EU; x-ctx-user-personalization=1_0; w_tuid=ifE3Z/d/DKL+MfrJfJN1DUoNv6E6HKpO9NJzsRNOhHyeXrUgVlphORqg94RoF6Vpoh1GT2tzoVEfrJxivg3Gts6NRUrbS3E+eL7bYl+dOecMZA7wXWoaZRa9BGyB3XdCqbN8gfiMYAmtanLPO0XwbZOpR1EinycmdmxwhH3Y2/SHOp/HN0I86HJA/eb+MB9P3A==:1_1_1_1.MY95X7d/qfZDVPQCeNVNfRCHLLNmxiP03hoOsYKTvt4=; Union=AllianceID=15214&SID=1349498&OUID=ctag.hash.pEOT05v070lZ&Expires=1792242022542&createtime=1789650022; _RSG=ttKvaX3ior6K_NSR3OQQ59; _RDG=28023205ed902027d201268937c296b1f3; intl_ht1=h4%3D176_2803915%2C718_2546496; _RF1=3.124.145.91; ibulanguage=NL; ibulocale=nl_nl; ibusite=NL; ibugroup=trip; _bfa=1.1781352534266.f55fz8QmGqiL.1.1789650883509.1789650905765.9.8.10320668147' \
+  -H 'pragma: no-cache' \
+  -H 'priority: u=0, i' \
+  -H 'sec-ch-ua: "Google Chrome";v="153", "Not_A Brand";v="8", "Chromium";v="153"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  -H 'sec-fetch-dest: document' \
+  -H 'sec-fetch-mode: navigate' \
+  -H 'sec-fetch-site: same-origin' \
+  -H 'sec-fetch-user: ?1' \
+  -H 'upgrade-insecure-requests: 1' \
+  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36'

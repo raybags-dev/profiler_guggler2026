@@ -1,0 +1,4 @@
+curl --url 'https://www.booking.com/' \
+  -H 'user-agent: Mozilla/5.0' \
+  -H 'accept: text/html' \
+  -b 'session_id=abc123; tracking=xyz'

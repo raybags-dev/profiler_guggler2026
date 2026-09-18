@@ -1,0 +1,103 @@
+# ---------------------------------------------------------------------
+# VCS
+# ---------------------------------------------------------------------
+.git/
+.gitignore
+.gitattributes
+
+# ---------------------------------------------------------------------
+# Python caches and build artifacts
+# ---------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+.eggs/
+build/
+dist/
+*.whl
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pytype/
+.pyre/
+.hypothesis/
+.coverage
+.coverage.*
+htmlcov/
+
+# ---------------------------------------------------------------------
+# Virtual environments
+# ---------------------------------------------------------------------
+venv/
+.venv/
+env/
+ENV/
+.python-version
+
+# ---------------------------------------------------------------------
+# Captured sessions (mounted at runtime, never baked into the image)
+# ---------------------------------------------------------------------
+profile_plugins/curl_sessions/*.curl
+_cURL.txt
+
+# ---------------------------------------------------------------------
+# Runtime output (created by the pipeline inside the container)
+# ---------------------------------------------------------------------
+sub_profiles/
+*.jsonl
+*.session_expired
+
+# ---------------------------------------------------------------------
+# Data dumps, scratch, debug artifacts
+# ---------------------------------------------------------------------
+json_data/
+google_profile_analytics.txt
+row_google_page.txt
+*.log
+logs/
+scratch/
+tmp/
+*.html.dump
+
+# ---------------------------------------------------------------------
+# Secrets and environment files (mounted or injected at runtime)
+# ---------------------------------------------------------------------
+.env
+.env.*
+*.pem
+*.key
+secrets/
+
+# ---------------------------------------------------------------------
+# Editor and OS cruft
+# ---------------------------------------------------------------------
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+*.iml
+
+# ---------------------------------------------------------------------
+# Docker / CI (not needed inside the image)
+# ---------------------------------------------------------------------
+Dockerfile
+.dockerignore
+docker-compose*.yml
+.github/
+cleanup.sh
+plumbing.sh
+
+# ---------------------------------------------------------------------
+# Documentation (not needed at runtime)
+# ---------------------------------------------------------------------
+README.md
+docs/
+LICENSE
+CHANGELOG.md

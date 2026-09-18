@@ -1,0 +1,31 @@
+curl --url 'https://www.google.com/travel/search?q=Hotel%20Okura%20Amsterdam&ved=0CAAQ5JsGahcKEwiAyt79sPOWAxUAAAAAHQAAAAAQBA&ts=CAAaGhIYEhIKBwjqDxAMGAYSBwjqDxAMGAcyAggCKgcKBToDRVVS&qs=MiNDaFlJcDRIQjhxcndqTUJuR2dvdmJTOHdkMlpvWHpWMkVBRQ&ap=KigKEgkwBYBLdixKQBFPM90TBpETQBISCY-VnC7WLEpAEU8z3cNDlBNA' \
+  -H 'accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7' \
+  -H 'accept-language: en-US,en;q=0.9' \
+  -H 'available-dictionary: :ZkhrfNpHloPI42n7qBOCLFA7o+osYhlOF4/EE2NxtYk=:' \
+  -H 'cache-control: no-cache' \
+  -b 'SEARCH_SAMESITE=CgQI16AB; __Secure-BUCKET=CJQD; HSID=AFLaC8AwuFEYGWlBo; SSID=Auz_fzQdcQtpe7kNt; APISID=7WIoXCqmIEYn8qVe/ADHDCYntEBVVepw7T; SAPISID=qo_VElwADGByHu3P/AG6hIZ5vY_6s-s6PP; __Secure-1PAPISID=qo_VElwADGByHu3P/AG6hIZ5vY_6s-s6PP; __Secure-3PAPISID=qo_VElwADGByHu3P/AG6hIZ5vY_6s-s6PP; SID=g.a000Cgkqcq3FIC5-30FLmFffYiUqXxKWCK4rSiI_x66dKFTYM_NGLQmBwwwfhJ2cOOY7T5OpGwACgYKATgSARESFQHGX2MinRlNs0epaIhfVy8_uPF98hoVAUF8yKopFqoIhbQruJUwBTUxiIGA0076; __Secure-1PSID=g.a000Cgkqcq3FIC5-30FLmFffYiUqXxKWCK4rSiI_x66dKFTYM_NG-N0f7PKks-fc_PpoweBzCAACgYKAYwSARESFQHGX2MiRhOIG44HXm415n6Sg0aueBoVAUF8yKouPhTHdkt6Mrodfu-tJVbT0076; __Secure-3PSID=g.a000Cgkqcq3FIC5-30FLmFffYiUqXxKWCK4rSiI_x66dKFTYM_NGZCUGY-kVgWg5bDSGACNAHgACgYKAcESARESFQHGX2MiDNwDeqtaXCok4km4FnboChoVAUF8yKrZtix9RyAwJANDWr7cTdij0076; AEC=Aaa9EJpffzUZfj5JO2Ck7lPxn0buD-fxFEuSIQW1ExXeU4xFeQ--dbGUzw; NID=CqUDCAES1wIBp2sxrm48-QA3fsgV6xloXNeDGFKPlz8MjPWhMbhN4emtbyLnqBvHy-4Zp2B2UTAf80beS59wHBSj_3kXIOfttNouCN7Bz3DsHLxQXeaq6H5X_rAf5gUSxSC-HZ17-NSzoUxdbNbMzk8jxnak2GUx6Q5jIJvmm2aQMASKUWxbz-Oekl9yyRiT_Schc8FZCYeqN0u9v-NIlYgT36SRWJC2dCqd7EPGnGHj8lHQQbh0OUHXv__5JzWx1sYs06KiuoQuB_z5jswGMzfTrAuPToPtkI0kZzCKJ2neK_nOhYIcIwFqCxabPzHClBIUddHKhgil2OvQHgyNUieOhzqsCLWYGfU49x67VqXviWyeapT9tExZGCityhRSCytmsZ-azL8Br7s0T6bd8Pi8PeYx9m1FXaFDqGD9FK6LdUAnhYgw3TkMwm3UXwLyDlEjzaDALgr5vkKHZgpHKAEyRQEOK94RiaB1KOx_YyU3eGHy9dNP_71cmDJKZUwUUT-chRxPJcfdSAEdcFu9LwfesMrHS9c9VFun5-8fVDsaSBuS9bylCw; OTZ=8787751_48_52_123900_48_436380; __Secure-1PSIDTS=sidts-CjEBXMw41RbXjY8xmxDTgSKlT-jcPKqfoEcoWs_MEywyr9KONsoPty0n0LoAPwuPAmLMEAA; __Secure-3PSIDTS=sidts-CjEBXMw41RbXjY8xmxDTgSKlT-jcPKqfoEcoWs_MEywyr9KONsoPty0n0LoAPwuPAmLMEAA; __Secure-STRP=ANmZwa13rcTto7seeh8POa0bCuQ-nnj31c1Uwrr4w0zI4CvuJQnR6kVZs_-zgY0QymqjZjV7tEuvANtSM7C0ZhepgB-cEUexapXG; DV=k6wjEf5yaLBhIBy4P1MyROtg1zSsChqI-LVhLnx5dgAAAICI4yVSgVam4QAAABhFrO4c0K_MeAAAAAHw2_5TMtlDHwAAgMnV5ChspL1vCAAAAA; __Secure-ENID=CrEDCAIS4wIBAQxeRY4v_ClvhtontpUEGlBdFsC_BN6zmy24UU20LOK6KmB6kontCaG4tTTUOB9zmZWvUJc8SPdV7sZ7zZ2dI1oXjM-9CkqaYyZMpaQ5ON02hgzOSOGoi9UmEpyKJRrCwZroO6qyYRpLTkqS-4zuUnR-luokwZ4Q_RF7cIEsyoUMyAHG2c2_pAGJd1b_Ob8zPkrl338AsyG3vMXJdeNQR5R8ZEfcjvovVgc9EXtN6CwIjk2QMypV2EXtSgwQzKCY0dIaFu5_hlDMYeY-tSdDGpJ0fD4EDKa7QaFr-xHxjfj2_mNqHU4O8YkUeFFoFEyZm8gv213vuc7C-q0tB_PIwqC8fyv_8NmPcQh0HVRrqo6mGOLUBH7zngW9UxjlrzGoxUzbev0YvXhSyEu-VqEueZsokqYYsgq9IC-XhRiQCSQ-aDcEx4GyK8ROChL56h4VWDfG_97LQsPpgpYcJ6bvvFYrKAIyRQF9bMSqZddtPtvly8ZWP07aa-2YQ1gkfYL0jLkWtYRELuhIEgUGGY6pwUIzhbwSv5ZClXwk0kR05zjpiOkiK5QAWD9pAA; SIDCC=AKEyXzWhYBprUX2Y5rBrvmvk8EwYH9w-cZtyVAkw33_fWpshGzyFI50c7bYl-wHAOvRBwjyefFQt; __Secure-1PSIDCC=AKEyXzXPzWDtDfSMTb9_SSKcl-tLF0bg2LrrKMfwdmGS0hX_gNjHHCDNa6OaWka82radRvS4WhhL; __Secure-3PSIDCC=AKEyXzWSg2RrCeTZBvHoOAoPN2KI5b7OmTvNm6w20HPL-EvUT0wnK5nYiK6OR7iesPwuTCG9wIw' \
+  -H 'pragma: no-cache' \
+  -H 'priority: u=0, i' \
+  -H 'sec-ch-prefers-color-scheme: dark' \
+  -H 'sec-ch-ua: "Google Chrome";v="153", "Not_A Brand";v="8", "Chromium";v="153"' \
+  -H 'sec-ch-ua-arch: "x86"' \
+  -H 'sec-ch-ua-bitness: "64"' \
+  -H 'sec-ch-ua-form-factors: "Desktop"' \
+  -H 'sec-ch-ua-full-version: "153.0.8010.36"' \
+  -H 'sec-ch-ua-full-version-list: "Google Chrome";v="153.0.8010.36", "Not_A Brand";v="8.0.0.0", "Chromium";v="153.0.8010.36"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-model: ""' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  -H 'sec-ch-ua-platform-version: "19.0.0"' \
+  -H 'sec-ch-ua-wow64: ?0' \
+  -H 'sec-fetch-dest: document' \
+  -H 'sec-fetch-mode: navigate' \
+  -H 'sec-fetch-site: same-origin' \
+  -H 'sec-fetch-user: ?1' \
+  -H 'upgrade-insecure-requests: 1' \
+  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36' \
+  -H 'x-browser-channel: stable' \
+  -H 'x-browser-copyright: Copyright 2026 Google LLC. All Rights Reserved.' \
+  -H 'x-browser-validation: ylxE+bTwUpL18PnDknpxsBhNpqg=' \
+  -H 'x-browser-year: 2026' \
+  -H 'x-client-data: CKmdygEIlKHLAQiFoM0BCMHhlDAI4OSUMAiD5ZQwCNvnlDAI3OeUMAje55QwCOHnlDAI4ueUMAjl55QwCObnlDAYq9+UMA=='
